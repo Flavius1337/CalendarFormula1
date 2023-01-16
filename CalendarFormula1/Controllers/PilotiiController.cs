@@ -42,19 +42,16 @@ namespace CalendarFormula1.Controllers
         }
         //detalii
 
-
-
-        public async Task<IActionResult> Edit(int id)
+        public async Task<IActionResult> Details(int id)
         {
             var pilotiiDetails = await _service.GetByIdAsync(id);
             if (pilotiiDetails == null) return View("Not Found");
             return View(pilotiiDetails);
         }
-
-
+        
 
         [HttpPost]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,NumePilot,ProfilePictureURL,NumarPilot,Echipa")] Piloti piloti)
+        public async Task<IActionResult> Details(int id, [Bind("Id,NumePilot,ProfilePictureURL,NumarPilot,Echipa")] Piloti piloti)
         {
             if (!ModelState.IsValid)
             {
